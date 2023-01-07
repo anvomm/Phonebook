@@ -6,11 +6,12 @@ import {
   InputGroup,
   Button,
   InputRightElement,
-  FormErrorMessage,
   FormHelperText,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon, ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import { useDispatch, useSelect } from 'react-redux';
+import { registerUser } from 'redux/auth/auth-operations';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -19,6 +20,8 @@ export const RegisterForm = () => {
 
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const dispatch = useDispatch();
 
   const resetForm = () => {
     setEmail('');
@@ -45,6 +48,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(registerUser({ name, email, password }));
     resetForm();
   };
 
@@ -94,6 +98,9 @@ export const RegisterForm = () => {
             ></IconButton>
           </InputRightElement>
         </InputGroup>
+        <FormHelperText>
+          Your password should contain at least 7 symbols.
+        </FormHelperText>
       </FormControl>
       <Button
         type="submit"

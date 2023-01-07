@@ -9,6 +9,8 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon, ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logInUser } from 'redux/auth/auth-operations';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -16,6 +18,8 @@ export const LoginForm = () => {
 
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const dispatch = useDispatch();
 
   const resetForm = () => {
     setEmail('');
@@ -38,6 +42,7 @@ export const LoginForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(logInUser({ email, password }));
     resetForm();
   };
 
