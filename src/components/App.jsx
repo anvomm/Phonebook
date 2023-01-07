@@ -1,8 +1,7 @@
 import { lazy } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { GlobalStyles } from 'utils/GlobalStyles';
 import { StyledToastContainer } from './ContactForm/ContactForm.styled';
 
 const HomePage = lazy(() =>
@@ -19,8 +18,26 @@ const ContactsPage = lazy(() =>
 );
 
 export const App = () => {
+  const theme = {
+    styles: {
+      global: {
+        'h1, h2': {
+          color: '#5c3c8c',
+          fontSize: '28px',
+          fontWeight: '700',
+        },
+
+        body: {
+          fontFamily: 'Poppins, sans-serif',
+        },
+      },
+    },
+  };
+
+  const customTheme = extendTheme(theme);
+
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -30,8 +47,6 @@ export const App = () => {
         </Route>
       </Routes>
       <StyledToastContainer />
-
-      <GlobalStyles />
     </ChakraProvider>
   );
 };
