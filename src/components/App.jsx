@@ -3,6 +3,8 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { StyledToastContainer } from './ContactForm/ContactForm.styled';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
@@ -41,9 +43,24 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="contacts" element={<ContactsPage />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
         </Route>
       </Routes>
       <StyledToastContainer />
