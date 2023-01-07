@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { GlobalStyles } from 'utils/GlobalStyles';
@@ -19,7 +20,7 @@ const ContactsPage = lazy(() =>
 
 export const App = () => {
   return (
-    <>
+    <ChakraProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -31,6 +32,6 @@ export const App = () => {
       <StyledToastContainer />
 
       <GlobalStyles />
-    </>
+    </ChakraProvider>
   );
 };
