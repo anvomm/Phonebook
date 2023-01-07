@@ -2,8 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://63b6a5c94f17e3a931baad80.mockapi.io';
-
 const notifyAboutError = () => {
   toast.error(`Ooops... something went wrong, please try again later.`, {
     position: 'top-right',

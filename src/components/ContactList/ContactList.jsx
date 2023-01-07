@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/contacts-operations';
 import {
   selectContacts,
   selectIsLoading,
@@ -28,9 +28,9 @@ export const ContactList = () => {
     <Loader />
   ) : contacts.length !== 0 && filteredContacts.length !== 0 ? (
     <List>
-      {filteredContacts.map(({ name, phone, id }) => (
+      {filteredContacts.map(({ name, number, id }) => (
         <ListItem key={id}>
-          <Contact name={name} number={phone} id={id}></Contact>
+          <Contact name={name} number={number} id={id}></Contact>
         </ListItem>
       ))}
     </List>
