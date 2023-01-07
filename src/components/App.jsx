@@ -1,27 +1,36 @@
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
 import { GlobalStyles } from 'utils/GlobalStyles';
-import { Section } from './Section/Section';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
 import { StyledToastContainer } from './ContactForm/ContactForm.styled';
+
+const HomePage = lazy(() =>
+  import('pages/HomePage' /* webpackChunkName: "home-page" */)
+);
+const RegisterPage = lazy(() =>
+  import('pages/RegisterPage' /* webpackChunkName: "register-page" */)
+);
+const LoginPage = lazy(() =>
+  import('pages/LoginPage' /* webpackChunkName: "login-page" */)
+);
+const ContactsPage = lazy(() =>
+  import('pages/ContactsPage' /* webpackChunkName: "contacts-page" */)
+);
 
 export const App = () => {
   return (
-    <div>
-      <Section>
-        <h1>Phonebook</h1>
-        <ContactForm />
-      </Section>
-
-      <Section>
-        <h2>Contacts</h2>
-        <Filter />
-
-        <ContactList />
-      </Section>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
       <StyledToastContainer />
 
       <GlobalStyles />
-    </div>
+    </>
   );
 };
