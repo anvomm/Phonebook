@@ -1,13 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { selectIsLoggedIn, selectToken } from 'redux/auth/auth-selectors';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Link } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logOutUser } from 'redux/auth/auth-operations';
+import { useSelector } from 'react-redux';
+import { UserMenu } from 'components/UserMenu/UserMenu';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  const dispatch = useDispatch();
 
   return (
     <nav>
@@ -42,7 +40,7 @@ export const Navigation = () => {
         </li>
         <li>
           {isLoggedIn ? (
-            <Link onClick={() => dispatch(logOutUser())}>Log out</Link>
+            <UserMenu />
           ) : (
             <Link
               as={NavLink}
