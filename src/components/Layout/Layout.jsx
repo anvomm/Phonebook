@@ -16,11 +16,9 @@ export const Layout = () => (
       </Box>
     </header>
     <main>
-      <Box w={1200} mx="auto">
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </Box>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </main>
     <footer>footer</footer>
   </Box>
