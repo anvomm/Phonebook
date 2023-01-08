@@ -5,6 +5,8 @@ import { Layout } from './Layout/Layout';
 import { StyledToastContainer } from './ContactForm/ContactForm.styled';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { buttonTheme } from './Button';
+import '@fontsource/gothic-a1';
 
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
@@ -24,19 +26,20 @@ export const App = () => {
     styles: {
       global: {
         'h1, h2': {
-          color: '#5c3c8c',
-          fontSize: '28px',
           fontWeight: '700',
         },
 
         body: {
-          fontFamily: 'Poppins, sans-serif',
+          fontFamily: 'Gothic A1, sans-serif',
         },
       },
     },
   };
 
-  const customTheme = extendTheme(theme);
+  const customTheme = extendTheme({
+    components: { Button: buttonTheme },
+    theme,
+  });
 
   return (
     <ChakraProvider theme={customTheme}>
