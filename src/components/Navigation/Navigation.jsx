@@ -20,24 +20,29 @@ export const Navigation = () => {
             Home
           </Link>
         </li>
-        <li>
-          <Link
-            as={NavLink}
-            to={'/contacts'}
-            _activeLink={{ color: '#5c3c8c', fontWeight: '700' }}
-          >
-            Contacts
-          </Link>
-        </li>
-        <li>
-          <Link
-            as={NavLink}
-            to={'/register'}
-            _activeLink={{ color: '#5c3c8c', fontWeight: '700' }}
-          >
-            Sign up
-          </Link>
-        </li>
+        {isLoggedIn && (
+          <li>
+            <Link
+              as={NavLink}
+              to={'/contacts'}
+              _activeLink={{ color: '#5c3c8c', fontWeight: '700' }}
+            >
+              Contacts
+            </Link>
+          </li>
+        )}
+        {!isLoggedIn && (
+          <li>
+            <Link
+              as={NavLink}
+              to={'/register'}
+              _activeLink={{ color: '#5c3c8c', fontWeight: '700' }}
+            >
+              Sign up
+            </Link>
+          </li>
+        )}
+
         <li>
           {isLoggedIn ? (
             <UserMenu />
