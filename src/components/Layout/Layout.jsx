@@ -45,13 +45,7 @@ export const Layout = () => {
       </Box>
     </Box>
   ) : (
-    <Box
-      bgColor={'#fff'}
-      w={'100%'}
-      h={'100vh'}
-      display="flex"
-      flexDirection={'column'}
-    >
+    <Box bgColor={'#e5e5e5'} w={'100%'} display="flex" flexDirection={'column'}>
       <Box as="header" w={'100%'} bgColor={'#FC0A7E'}>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
@@ -66,7 +60,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Box as="footer" mt={'auto'} pb={'15px'} bgColor={'#3C0C41'}>
+      <Box as="footer" pb={'15px'} bgColor={'#3C0C41'}>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
           mx="auto"
