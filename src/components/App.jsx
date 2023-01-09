@@ -6,6 +6,7 @@ import { StyledToastContainer } from './ContactForm/ContactForm.styled';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { buttonTheme } from './Button';
+import { inputTheme } from './inputStyle';
 import '@fontsource/gothic-a1';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/auth-operations';
@@ -40,7 +41,7 @@ export const App = () => {
   };
 
   const customTheme = extendTheme({
-    components: { Button: buttonTheme },
+    components: { Button: buttonTheme, Input: inputTheme },
     theme,
   });
 
