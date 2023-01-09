@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
@@ -7,6 +7,9 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { buttonTheme } from './Button';
 import '@fontsource/gothic-a1';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshUser } from 'redux/auth/auth-operations';
+import { selectIsRefreshing } from 'redux/auth/auth-selectors';
 
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
@@ -41,7 +44,16 @@ export const App = () => {
     theme,
   });
 
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <ChakraProvider theme={customTheme}>
       <Routes>
         <Route path="/" element={<Layout />}>
