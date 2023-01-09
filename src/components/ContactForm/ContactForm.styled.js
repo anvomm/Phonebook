@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ToastContainer } from 'react-toastify';
 
 export const Form = styled.form`
   width: 250px;
@@ -64,15 +63,5 @@ export const Button = styled.button`
   &:hover,
   &:focus {
     background-color: #ac8acf;
-  }
-`;
-
-export const StyledToastContainer = styled(ToastContainer)`
-  .Toastify__toast {
-    background-color: #d3b0f7;
-    color: #3a383d;
-  }
-  .Toastify__close-button {
-    color: #3a383d;
   }
 `;
