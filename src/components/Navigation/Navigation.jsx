@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Link as ReachLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Link, Flex, List } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
@@ -8,6 +9,9 @@ import '@fontsource/courgette';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const location = useLocation();
+
+  const activeLinkColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
 
   return (
     <nav>
@@ -27,7 +31,7 @@ export const Navigation = () => {
             <Link
               as={NavLink}
               to="/"
-              _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
+              _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
               _hover={{ textDecoration: 'none' }}
               display={['none', 'none', 'inline-block']}
             >
@@ -39,7 +43,7 @@ export const Navigation = () => {
               <Link
                 as={NavLink}
                 to={'/contacts'}
-                _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
+                _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
                 _hover={{ textDecoration: 'none' }}
               >
                 Contacts
@@ -51,7 +55,7 @@ export const Navigation = () => {
               <Link
                 as={NavLink}
                 to={'/register'}
-                _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
+                _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
                 _hover={{ textDecoration: 'none' }}
               >
                 Sign up
@@ -66,7 +70,7 @@ export const Navigation = () => {
               <Link
                 as={NavLink}
                 to={'/login'}
-                _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
+                _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
                 _hover={{ textDecoration: 'none' }}
               >
                 Log in

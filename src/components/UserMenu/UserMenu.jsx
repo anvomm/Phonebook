@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { selectUser } from 'redux/auth/auth-selectors';
 import { logOutUser } from 'redux/auth/auth-operations';
 import { Link, Flex, Avatar, Text, Box } from '@chakra-ui/react';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectUser).name;
+
+  const location = useLocation();
+  const activeColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
 
   return (
     <Flex
@@ -13,8 +17,8 @@ export const UserMenu = () => {
       align={'center'}
     >
       <Flex gap={2}>
-        <Avatar size="xs" bg="#FC0A7E" src="https://bit.ly/broken-link" />
-        <Text fontSize={20} lineHeight={1.1}>
+        <Avatar size="xs" bg={activeColor} src="https://bit.ly/broken-link" />
+        <Text fontSize={20} lineHeight={1.1} color={activeColor}>
           {name}
         </Text>
       </Flex>
