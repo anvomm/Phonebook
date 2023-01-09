@@ -8,9 +8,9 @@ import {
   Button,
   InputRightElement,
   FormHelperText,
+  useToast,
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import { useToast } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch, useSelect } from 'react-redux';
 import { registerUser } from 'redux/auth/auth-operations';
