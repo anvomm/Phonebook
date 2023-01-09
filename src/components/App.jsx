@@ -1,13 +1,11 @@
 import { lazy, useEffect } from 'react';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { customTheme } from 'utils/theme';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { StyledToastContainer } from './ContactForm/ContactForm.styled';
+import { ToastContainer } from 'react-toastify';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
-import { buttonTheme } from './Button';
-import { inputTheme } from './inputStyle';
-import '@fontsource/gothic-a1';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/auth-operations';
 import { selectIsRefreshing } from 'redux/auth/auth-selectors';
@@ -26,25 +24,6 @@ const ContactsPage = lazy(() =>
 );
 
 export const App = () => {
-  const theme = {
-    styles: {
-      global: {
-        'h1, h2': {
-          fontWeight: '700',
-        },
-
-        body: {
-          fontFamily: 'Gothic A1, sans-serif',
-        },
-      },
-    },
-  };
-
-  const customTheme = extendTheme({
-    components: { Button: buttonTheme, Input: inputTheme },
-    theme,
-  });
-
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
 
@@ -85,7 +64,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      <StyledToastContainer />
+      <ToastContainer />
     </ChakraProvider>
   );
 };

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-const notifyAboutError = () => {
+export const notifyAboutError = () => {
   toast.error(`Ooops... something went wrong, please try again later.`, {
     position: 'top-right',
     autoClose: 5000,
@@ -11,20 +11,20 @@ const notifyAboutError = () => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: 'light',
+    theme: 'colored',
   });
 };
 
-const notifyAboutSuccess = text => {
-  toast(text, {
+export const notifyAboutSuccess = text => {
+  toast.success(text, {
     position: 'top-right',
-    autoClose: 5000,
+    autoClose: 3000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: 'light',
+    theme: 'colored',
   });
 };
 
