@@ -1,6 +1,5 @@
 import { Input } from '@chakra-ui/react';
 import {
-  Box,
   Flex,
   IconButton,
   FormControl,
@@ -84,8 +83,7 @@ export const RegisterForm = () => {
     <Flex
       as="form"
       flexDirection={'column'}
-      align={'center'}
-      gap={'20px'}
+      gap={'50px'}
       bgGradient="linear(to-t, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"
       bgColor={'#CF0063'}
       borderRadius={'8px'}
@@ -95,101 +93,103 @@ export const RegisterForm = () => {
       w={['280px', '400px', '450px', '500px']}
       onSubmit={handleSubmit}
     >
-      <FormControl isRequired>
-        <FormLabel color={'#fff'}>Name</FormLabel>
-        <Input
-          type="name"
-          name="name"
-          value={name}
-          onChange={handleInputChange}
-          placeholder="Enter your name or nikname"
-          _placeholder={{
-            color: '#000',
-            fontSize: ['12px', '13px', '14px', '15px', '16px'],
-          }}
-          variant={'styled'}
-        />
-      </FormControl>
-      <FormControl isRequired>
-        <FormLabel color={'#fff'}>Email</FormLabel>
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleInputChange}
-          variant={'styled'}
-          placeholder="Enter the email you'd like to use as login"
-          _placeholder={{
-            color: '#000',
-            fontSize: ['12px', '13px', '14px', '15px', '16px'],
-          }}
-        />
-      </FormControl>
-      <FormControl isRequired>
-        <FormLabel color={'#fff'}>Password</FormLabel>
-        <InputGroup>
+      <Flex flexDirection={'column'} align={'center'} gap={'20px'}>
+        <FormControl isRequired>
+          <FormLabel color={'#fff'}>Name</FormLabel>
           <Input
-            name="password"
-            value={password}
-            pr="4.5rem"
-            type={show ? 'text' : 'password'}
-            placeholder="Enter password"
+            type="name"
+            name="name"
+            value={name}
+            onChange={handleInputChange}
+            placeholder="Enter your name or nikname"
             _placeholder={{
               color: '#000',
               fontSize: ['12px', '13px', '14px', '15px', '16px'],
             }}
+            variant={'styled'}
+          />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel color={'#fff'}>Email</FormLabel>
+          <Input
+            type="email"
+            name="email"
+            value={email}
             onChange={handleInputChange}
             variant={'styled'}
-          />
-          <InputRightElement width="4.5rem">
-            <IconButton
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}
-              icon={
-                show ? (
-                  <ViewOffIcon color="#CF0063" />
-                ) : (
-                  <ViewIcon color="#CF0063" />
-                )
-              }
-            ></IconButton>
-          </InputRightElement>
-        </InputGroup>
-        <FormHelperText color={'#fff'}>
-          Your password should contain at least 7 symbols.
-        </FormHelperText>
-      </FormControl>
-      <FormControl isRequired>
-        <FormLabel color={'#fff'}>Password</FormLabel>
-        <InputGroup>
-          <Input
-            variant={'styled'}
-            name="passwordRepeat"
-            pr="4.5rem"
-            type={show ? 'text' : 'password'}
-            placeholder="Repeat password"
+            placeholder="Enter the email you'd like to use as login"
             _placeholder={{
               color: '#000',
               fontSize: ['12px', '13px', '14px', '15px', '16px'],
             }}
           />
-          <InputRightElement width="4.5rem">
-            <IconButton
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}
-              icon={
-                show ? (
-                  <ViewOffIcon color="#CF0063" />
-                ) : (
-                  <ViewIcon color="#CF0063" />
-                )
-              }
-            ></IconButton>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel color={'#fff'}>Password</FormLabel>
+          <InputGroup>
+            <Input
+              name="password"
+              value={password}
+              pr="4.5rem"
+              type={show ? 'text' : 'password'}
+              placeholder="Enter password"
+              _placeholder={{
+                color: '#000',
+                fontSize: ['12px', '13px', '14px', '15px', '16px'],
+              }}
+              onChange={handleInputChange}
+              variant={'styled'}
+            />
+            <InputRightElement width="4.5rem">
+              <IconButton
+                h="1.75rem"
+                size="sm"
+                onClick={handleClick}
+                icon={
+                  show ? (
+                    <ViewOffIcon color="#CF0063" />
+                  ) : (
+                    <ViewIcon color="#CF0063" />
+                  )
+                }
+              ></IconButton>
+            </InputRightElement>
+          </InputGroup>
+          <FormHelperText color={'#fff'}>
+            Your password should contain at least 7 symbols.
+          </FormHelperText>
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel color={'#fff'}>Password</FormLabel>
+          <InputGroup>
+            <Input
+              variant={'styled'}
+              name="passwordRepeat"
+              pr="4.5rem"
+              type={show ? 'text' : 'password'}
+              placeholder="Repeat password"
+              _placeholder={{
+                color: '#000',
+                fontSize: ['12px', '13px', '14px', '15px', '16px'],
+              }}
+            />
+            <InputRightElement width="4.5rem">
+              <IconButton
+                h="1.75rem"
+                size="sm"
+                onClick={handleClick}
+                icon={
+                  show ? (
+                    <ViewOffIcon color="#CF0063" />
+                  ) : (
+                    <ViewIcon color="#CF0063" />
+                  )
+                }
+              ></IconButton>
+            </InputRightElement>
+          </InputGroup>
+        </FormControl>
+      </Flex>
       <Button alignSelf={'center'} type="submit" variant="pinkButton">
         Sign up
       </Button>
