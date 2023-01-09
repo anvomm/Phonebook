@@ -29,6 +29,7 @@ const HomePage = () => {
       </Box>
       <Image
         boxSize="400px"
+        display={['none', 'none', 'none', 'none', 'inline-block']}
         src="https://freesvg.org/img/1344190891.png"
         alt=""
       />

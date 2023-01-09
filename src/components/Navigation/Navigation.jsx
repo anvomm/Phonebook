@@ -17,18 +17,19 @@ export const Navigation = () => {
           to="/"
           fontFamily={'Courgette, cursive'}
           fontSize={'28'}
+          alignSelf={['baseline', 'baseline', 'center']}
           _hover={{ textDecoration: 'none' }}
         >
           Phonebook
         </Link>
-        <List display="flex" gap="30">
+        <List display="flex" gap="38">
           <li>
             <Link
               as={NavLink}
               to="/"
               _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
               _hover={{ textDecoration: 'none' }}
-              display={['none', 'inline-block']}
+              display={['none', 'none', 'inline-block']}
             >
               Home
             </Link>
