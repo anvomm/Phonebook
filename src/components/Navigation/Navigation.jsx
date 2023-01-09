@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Link as ReachLink } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Link, Flex, List } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
@@ -12,6 +13,7 @@ export const Navigation = () => {
     <nav>
       <Flex align="center" w={'100%'} justify="space-between" color="#fff">
         <Link
+          as={ReachLink}
           to="/"
           fontFamily={'Courgette, cursive'}
           fontSize={'28'}
@@ -23,10 +25,10 @@ export const Navigation = () => {
           <li>
             <Link
               as={NavLink}
-              end
               to="/"
               _activeLink={{ color: '#FC0A7E', fontWeight: '700' }}
               _hover={{ textDecoration: 'none' }}
+              display={['none', 'inline-block']}
             >
               Home
             </Link>

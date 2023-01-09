@@ -8,11 +8,17 @@ export const Layout = () => (
   <Box
     bgGradient="linear(287.15deg, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"
     bgColor={'#CF0063'}
+    w={'100%'}
     h={'100vh'}
     display="flex"
     flexDirection={'column'}
   >
-    <Box as="header" w={1200} mx="auto" pt={30}>
+    <Box
+      as="header"
+      w={['300px', '440px', '750px', '970px', '1200px']}
+      mx="auto"
+      pt={30}
+    >
       <Navigation />
     </Box>
     <main>
@@ -22,7 +28,7 @@ export const Layout = () => (
     </main>
     <Box as="footer" mt={'auto'} pb={'15px'}>
       <Box
-        w={1200}
+        w={['300px', '440px', '750px', '970px', '1200px']}
         mx="auto"
         pt={30}
         display={'flex'}
