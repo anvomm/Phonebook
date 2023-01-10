@@ -7,7 +7,7 @@ import { Box, Text, CircularProgress } from '@chakra-ui/react';
 export const Layout = () => {
   const location = useLocation();
 
-  return location.pathname === '/' ? (
+  return location.pathname === '/' || (location.pathname !== '/contacts' && location.pathname !== '/register' && location.pathname !== '/login') ? (
     <Box
       bgGradient="linear(287.15deg, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"
       bgColor={'#CF0063'}

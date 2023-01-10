@@ -8,7 +8,7 @@ export const UserMenu = () => {
   const name = useSelector(selectUser).name;
 
   const location = useLocation();
-  const activeColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
+  const activeColor = location.pathname === '/' || (location.pathname !== '/contacts' && location.pathname !== '/register' && location.pathname !== '/login') ? '#FC0A7E' : '#613975';
 
   return (
     <Flex
