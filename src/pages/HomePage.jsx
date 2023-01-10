@@ -1,5 +1,6 @@
-import { Heading, Text, Button, Box, Image } from '@chakra-ui/react';
+import { Heading, Text, Button, Box, Image, Flex } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { Animation } from 'components/Animation';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const HomePage = () => {
     <Box
       w={['300px', '440px', '750px', '970px', '1200px']}
       mx="auto"
-      pt={'80px'}
+      pt={'40px'}
       display={'flex'}
       alignItems={'center'}
       gap={'100px'}
@@ -27,12 +28,14 @@ const HomePage = () => {
           Join now
         </Button>
       </Box>
-      <Image
+      <Flex justify='center' align='center'>
+      <Animation /></Flex>
+      {/* <Image
         boxSize="400px"
         display={['none', 'none', 'none', 'none', 'inline-block']}
         src="https://freesvg.org/img/1344190891.png"
         alt=""
-      />
+      /> */}
       {/* <Image
         src="https://freesvg.org/img/shokunin_businessman_on_phone.png"
         boxSize="400px"
