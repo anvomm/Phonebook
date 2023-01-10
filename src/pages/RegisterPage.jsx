@@ -1,5 +1,6 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { Heading, Text, Box } from '@chakra-ui/react';
+
 const RegisterPage = () => (
   <Box w={['300px', '440px', '750px', '970px', '1200px']} mx="auto" pt="60px">
     <Heading as={'h2'} textAlign={'center'} mb={'25px'} color={'#613975'}>

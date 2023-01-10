@@ -82,6 +82,8 @@ export const RegisterForm = () => {
   return (
     <Flex
       as="form"
+      position={'relative'}
+      zIndex="1000"
       flexDirection={'column'}
       gap={'50px'}
       bgGradient="linear(to-t, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"

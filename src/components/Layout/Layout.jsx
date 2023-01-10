@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Box, Text, CircularProgress } from '@chakra-ui/react';
+import Sparkle from 'react-sparkle';
 
 export const Layout = () => {
   const location = useLocation();
@@ -61,7 +62,13 @@ export const Layout = () => {
       display="flex"
       flexDirection={'column'}
     >
-      <Box as="header" w={'100%'} bgColor={'#FC0A7E'}>
+      <Box
+        as="header"
+        w={'100%'}
+        bgColor={'#FC0A7E'}
+        position="relative"
+        zIndex={'1000'}
+      >
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
           mx="auto"
@@ -82,6 +89,17 @@ export const Layout = () => {
             />
           }
         >
+          {location.pathname !== '/contacts' && (
+            <Sparkle
+              color={'#3C0C41'}
+              fadeOutSpeed={10}
+              newSparkleOnFadeOut={false}
+              flicker
+              flickerSpeed="fast"
+              count={80}
+            />
+          )}
+
           <Outlet />
         </Suspense>
       </main>
