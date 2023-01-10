@@ -6,7 +6,7 @@ import {
   selectIsLoading,
 } from 'redux/contacts/contacts-selectors';
 import { selectFilter } from 'redux/filter/filter-selectors';
-import { Contact } from 'components/Contact/Contact';
+import { Contact } from 'components/Contact';
 import { List, ListItem, Text, CircularProgress } from '@chakra-ui/react';
 
 export const ContactList = () => {

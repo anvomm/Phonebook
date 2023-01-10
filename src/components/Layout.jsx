@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { Navigation } from 'components/Navigation/Navigation';
+import { Navigation } from 'components/Navigation';
 import { Box, Text, CircularProgress } from '@chakra-ui/react';
 
 export const Layout = () => {

@@ -22,7 +22,7 @@ export function Animation() {
     React.useEffect(() => {
       const animation = animate(progress, pathIndex, {
           duration: 0.8,
-          transition: { delay: 0, },
+          delay: 1,
         ease: "easeInOut",
         onComplete: () => {
           if (pathIndex === paths.length - 1) {

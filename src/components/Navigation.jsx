@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Link, Flex, List } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
-import { UserMenu } from 'components/UserMenu/UserMenu';
+import { UserMenu } from 'components/UserMenu';
 import '@fontsource/courgette';
 import { MobileMenu } from 'components/MobileMenu';
 

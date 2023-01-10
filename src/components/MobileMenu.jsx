@@ -12,7 +12,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { useLocation } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
-import { UserMenu } from './UserMenu/UserMenu';
+import { UserMenu } from './UserMenu';
 
 export const MobileMenu = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

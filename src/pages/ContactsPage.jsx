@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
+import { ContactForm } from 'components/ContactForm';
+import { Filter } from 'components/Filter';
+import { ContactList } from 'components/ContactList';
 
 const ContactsPage = () => (
   <Box w={['300px', '440px', '750px', '970px', '1200px']} mx="auto" pt="30px">

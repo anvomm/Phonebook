@@ -1,4 +1,4 @@
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { LoginForm } from 'components/LoginForm';
 import { Heading, Box } from '@chakra-ui/react';
 
 const LoginPage = () => (

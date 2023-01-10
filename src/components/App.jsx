@@ -2,7 +2,7 @@ import { lazy, useEffect } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { customTheme } from 'utils/theme';
 import { Routes, Route } from 'react-router-dom';
-import { Layout } from './Layout/Layout';
+import { Layout } from './Layout';
 import { ToastContainer } from 'react-toastify';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
