@@ -2,9 +2,15 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Form, Wrap, Label, Input, Button } from './ContactForm.styled';
+import {
+  Flex,
+  Text,
+  Button,
+  Input,
+  FormControl,
+  FormLabel,
+  useToast,
+} from '@chakra-ui/react';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -12,6 +18,8 @@ export const ContactForm = () => {
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+
+  const toast = useToast();
 
   const resetForm = () => {
     setName('');
@@ -47,12 +55,19 @@ export const ContactForm = () => {
 
   const submitHandler = e => {
     e.preventDefault();
+    console.log('here');
     const isExist = contacts.find(
       contacts => contacts.name.toLowerCase() === name.toLowerCase()
     );
 
     if (isExist) {
-      notificateIsExist(name);
+      toast({
+        title: `${name} is already in contacts.`,
+        status: 'error',
+        position: 'top',
+        duration: 5000,
+        isClosable: true,
+      });
       resetForm();
       return;
     }
@@ -61,24 +76,54 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={submitHandler}>
-      <Wrap>
-        <Label>
+    <Flex
+      as={'form'}
+      flexDirection={['column', 'column', 'row']}
+      align={'center'}
+      justify={'center'}
+      gap={'40px'}
+      mb="50px"
+      onSubmit={submitHandler}
+    >
+      <FormControl w={'300px'} isRequired>
+        <FormLabel
+          display={'flex'}
+          gap={'10px'}
+          alignItems={'center'}
+          color={'#6B6B6B'}
+          fontSize={['14px', '14px', '14px', '16px', '18px']}
+        >
           Name
           <Input
-            type="text"
+            variant="flushed"
+            borderColor="#613975"
+            autoComplete="off"
+            focusBorderColor="#FC0A7E"
+            fontSize={['14px', '14px', '14px', '16px', '18px']}
+            pl="10px"
+            type="name"
             name="name"
             value={name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             onChange={inputHandler}
-            required
           />
-        </Label>
-        <Label>
+        </FormLabel>
+      </FormControl>
+      <FormControl w={'300px'} isRequired>
+        <FormLabel
+          display={'flex'}
+          gap={'10px'}
+          alignItems={'center'}
+          color={'#6B6B6B'}
+          fontSize={['14px', '14px', '14px', '16px', '18px']}
+        >
           Number
           <Input
-            type="tel"
+            variant="flushed"
+            borderColor="#613975"
+            focusBorderColor="#FC0A7E"
+            fontSize={['14px', '14px', '14px', '16px', '18px']}
+            pl="10px"
+            autoComplete="off"
             name="number"
             value={number}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -86,10 +131,20 @@ export const ContactForm = () => {
             onChange={inputHandler}
             required
           />
-        </Label>
-      </Wrap>
+        </FormLabel>
+      </FormControl>
 
-      <Button onClick={e => e.target.blur()}>Add contact</Button>
-    </Form>
+      <Button
+        type="submit"
+        variant={'pinkButton'}
+        _hover={{
+          bgColor: 'transparent',
+          border: '1px solid #B04BB3',
+          color: '#B04BB3',
+        }}
+      >
+        Add contact
+      </Button>
+    </Flex>
   );
 };

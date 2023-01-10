@@ -1,9 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { Loader } from 'components/Loader/Loader';
 import { Navigation } from 'components/Navigation/Navigation';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, CircularProgress } from '@chakra-ui/react';
 
 export const Layout = () => {
   const location = useLocation();
@@ -26,7 +25,17 @@ export const Layout = () => {
         <Navigation />
       </Box>
       <main>
-        <Suspense fallback={<Loader />}>
+        <Suspense
+          fallback={
+            <CircularProgress
+              isIndeterminate
+              color="#FC0A7E"
+              size="60px"
+              display={'flex'}
+              justifyContent="center"
+            />
+          }
+        >
           <Outlet />
         </Suspense>
       </main>
@@ -45,7 +54,13 @@ export const Layout = () => {
       </Box>
     </Box>
   ) : (
-    <Box bgColor={'#e5e5e5'} w={'100%'} display="flex" flexDirection={'column'}>
+    <Box
+      bgColor={'#fff'}
+      w={'100%'}
+      h={'100vh'}
+      display="flex"
+      flexDirection={'column'}
+    >
       <Box as="header" w={'100%'} bgColor={'#FC0A7E'}>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
@@ -56,11 +71,21 @@ export const Layout = () => {
         </Box>
       </Box>
       <main>
-        <Suspense fallback={<Loader />}>
+        <Suspense
+          fallback={
+            <CircularProgress
+              isIndeterminate
+              color="#FC0A7E"
+              size="60px"
+              display={'flex'}
+              justifyContent="center"
+            />
+          }
+        >
           <Outlet />
         </Suspense>
       </main>
-      <Box as="footer" pb={'15px'} bgColor={'#3C0C41'}>
+      <Box as="footer" pb={'15px'} bgColor={'#3C0C41'} mt={'auto'}>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
           mx="auto"

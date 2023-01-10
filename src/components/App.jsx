@@ -32,7 +32,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <b>Wait a second... User refreshing will end soon!</b>
   ) : (
     <ChakraProvider theme={customTheme}>
       <Routes>

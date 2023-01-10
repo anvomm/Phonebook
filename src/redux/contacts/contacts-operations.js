@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const notifyAboutError = () => {
   toast.error(`Ooops... something went wrong, please try again later.`, {
@@ -46,6 +47,7 @@ export const addContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     try {
       const response = await axios.post(`/contacts`, contact);
+
       notifyAboutSuccess(
         `${contact.name} is successfully added to your contacts.`
       );

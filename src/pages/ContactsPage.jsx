@@ -1,21 +1,22 @@
-import { Section } from 'components/Section/Section';
+import { Box, Text } from '@chakra-ui/react';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 
 const ContactsPage = () => (
-  <div>
-    <Section>
-      <h1>Phonebook</h1>
-      <ContactForm />
-    </Section>
+  <Box w={['300px', '440px', '750px', '970px', '1200px']} mx="auto" pt="30px">
+    <Filter />
+    <Text
+      color={'#613975'}
+      fontSize={['18px', '18px', '20px', '22px', '24px']}
+      mb={'35px'}
+    >
+      Add new contact:
+    </Text>
+    <ContactForm />
 
-    <Section>
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </Section>
-  </div>
+    <ContactList />
+  </Box>
 );
 
 export default ContactsPage;
