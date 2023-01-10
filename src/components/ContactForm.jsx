@@ -4,7 +4,6 @@ import { addContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
 import {
   Flex,
-  Text,
   Button,
   Input,
   FormControl,
@@ -24,19 +23,6 @@ export const ContactForm = () => {
   const resetForm = () => {
     setName('');
     setNumber('');
-  };
-
-  const notificateIsExist = name => {
-    toast(`${name} is already in contacts.`, {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    });
   };
 
   const inputHandler = e => {

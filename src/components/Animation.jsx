@@ -34,7 +34,7 @@ export function Animation() {
         }
       });
       return () => animation.stop();
-    }, [pathIndex]);
+    }, [pathIndex, progress]);
   
     return (
         <svg width="500" height="500" >

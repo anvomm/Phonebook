@@ -1,4 +1,4 @@
-import { Heading, Text, Button, Box, Image, Flex } from '@chakra-ui/react';
+import { Heading, Text, Button, Box, Flex } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Animation } from 'components/Animation';
 

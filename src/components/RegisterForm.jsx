@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
-import { useDispatch, useSelect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { registerUser } from 'redux/auth/auth-operations';
 
 export const RegisterForm = () => {
