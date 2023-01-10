@@ -37,7 +37,7 @@ export function Animation() {
     }, [pathIndex, progress]);
   
     return (
-        <svg width="500" height="500" >
+        <svg width="350" height="350" viewBox="0 0 500 500" style={{paddingTop: '60px'}} >
         <g transform="translate(10 10) scale(17 17)">
                 <motion.path transition= {{ delay: 0, }} fill={fill} d={path} />
         </g>

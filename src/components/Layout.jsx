@@ -39,7 +39,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Box as="footer" mt={'auto'} pb={'5px'}>
+      <Box as="footer" mt={'auto'} pb={'15px'} pt='30px'>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
           mx="auto"
