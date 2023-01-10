@@ -6,6 +6,7 @@ import { Link, Flex, List } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import '@fontsource/courgette';
+import { MobileMenu } from 'components/MobileMenu';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -26,14 +27,15 @@ export const Navigation = () => {
         >
           Phonebook
         </Link>
-        <List display="flex" gap="38">
+        <MobileMenu />
+        <List display={['none', 'none', 'flex']} gap="38">
           <li>
             <Link
               as={NavLink}
               to="/"
               _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
               _hover={{ textDecoration: 'none' }}
-              display={['none', 'none', 'inline-block']}
+              visibility={['hidden', 'hidden', 'visible']}
             >
               Home
             </Link>

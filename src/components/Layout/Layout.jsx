@@ -90,14 +90,16 @@ export const Layout = () => {
           }
         >
           {location.pathname !== '/contacts' && (
-            <Sparkle
-              color={'#3C0C41'}
-              fadeOutSpeed={10}
-              newSparkleOnFadeOut={false}
-              flicker
-              flickerSpeed="fast"
-              count={80}
-            />
+            <Box w="100%">
+              <Sparkle
+                color={'#3C0C41'}
+                fadeOutSpeed={10}
+                newSparkleOnFadeOut={false}
+                flicker
+                flickerSpeed="fast"
+                count={80}
+              />
+            </Box>
           )}
 
           <Outlet />

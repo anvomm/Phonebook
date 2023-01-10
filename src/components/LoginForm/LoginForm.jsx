@@ -71,7 +71,6 @@ export const LoginForm = () => {
             name="email"
             value={email}
             onChange={handleInputChange}
-            width="400px"
             placeholder="Email"
             _placeholder={{
               color: '#000',
@@ -82,7 +81,7 @@ export const LoginForm = () => {
         </FormControl>
         <FormControl isRequired>
           <FormLabel color={'#fff'}>Password</FormLabel>
-          <InputGroup width="400px">
+          <InputGroup>
             <Input
               name="password"
               value={password}
