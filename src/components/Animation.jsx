@@ -6,8 +6,8 @@ import { getIndex, useFlubber } from "../hooks/useFlubber.ts";
 
 const paths = [ phone, /* contact, */ mobile, book, phone];
 const colors = [
+    "#8855ff",
   "#0099ff",
-  "#8855ff",
   "#ff0055",
   /* "#ee4444", */
   "#00cc88"
