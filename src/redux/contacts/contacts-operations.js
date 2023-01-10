@@ -17,7 +17,7 @@ export const notifyAboutError = () => {
 };
 
 export const notifyAboutSuccess = text => {
-  toast.success(text, {
+  toast.info(text, {
     position: 'top-right',
     autoClose: 3000,
     hideProgressBar: true,
