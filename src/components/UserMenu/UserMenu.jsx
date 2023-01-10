@@ -12,9 +12,10 @@ export const UserMenu = () => {
 
   return (
     <Flex
-      gap={['2', '2', '4']}
-      direction={['column-reverse', 'column-reverse', 'row']}
-      align={'center'}
+      gap={['5', '5', '4']}
+      direction={['column', 'column', 'row']}
+      align={'flex-start'}
+      px={['15px', '15px', '0']}
     >
       <Flex gap={2}>
         <Avatar size="xs" bg={activeColor} src="https://bit.ly/broken-link" />

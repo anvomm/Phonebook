@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Box, Text, CircularProgress } from '@chakra-ui/react';
-import Sparkle from 'react-sparkle';
 
 export const Layout = () => {
   const location = useLocation();
@@ -89,19 +88,6 @@ export const Layout = () => {
             />
           }
         >
-          {location.pathname !== '/contacts' && (
-            <Box w="100%">
-              <Sparkle
-                color={'#3C0C41'}
-                fadeOutSpeed={10}
-                newSparkleOnFadeOut={false}
-                flicker
-                flickerSpeed="fast"
-                count={80}
-              />
-            </Box>
-          )}
-
           <Outlet />
         </Suspense>
       </main>
