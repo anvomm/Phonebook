@@ -13,13 +13,14 @@ export const Navigation = () => {
   const location = useLocation();
 
   const activeLinkColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
+  const redirectOnLogoClick = isLoggedIn ? '/contacts' : '/'
 
   return (
     <nav>
       <Flex align="center" w={'100%'} justify="space-between" color="#fff">
         <Link
           as={ReachLink}
-          to="/"
+          to={redirectOnLogoClick}
           fontFamily={'Courgette, cursive'}
           fontSize={'28'}
           alignSelf={['baseline', 'baseline', 'center']}
@@ -30,7 +31,7 @@ export const Navigation = () => {
         <MobileMenu />
         <List display={['none', 'none', 'flex']} gap="38">
           <li>
-            <Link
+            {!isLoggedIn &&  <Link
               as={NavLink}
               to="/"
               _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
@@ -38,9 +39,9 @@ export const Navigation = () => {
               visibility={['hidden', 'hidden', 'visible']}
             >
               Home
-            </Link>
+            </Link>}
           </li>
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <li>
               <Link
                 as={NavLink}
@@ -51,7 +52,7 @@ export const Navigation = () => {
                 Contacts
               </Link>
             </li>
-          )}
+          )} */}
           {!isLoggedIn && (
             <li>
               <Link
