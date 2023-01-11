@@ -7,7 +7,7 @@ import {
 } from 'redux/contacts/contacts-selectors';
 import { selectFilter } from 'redux/filter/filter-selectors';
 import { Contact } from 'components/Contact';
-import { List, ListItem, Text, CircularProgress } from '@chakra-ui/react';
+import { List, ListItem, Text, Spinner } from '@chakra-ui/react';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -26,15 +26,18 @@ export const ContactList = () => {
   const getRandomColor = () => {
     const color = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
     return color;
-  }
+  };
 
   return contacts.length === 0 && isLoading ? (
-    <CircularProgress
-      isIndeterminate
+    <Spinner
+      thickness="4px"
+      emptyColor="gray.200"
       color="#FC0A7E"
-      size="60px"
-      display={'flex'}
-      justifyContent="center"
+      size="xl"
+      position={'absolute'}
+      top="50%"
+      left="50%"
+      transform="translate(-50%, -50%)"
     />
   ) : contacts.length !== 0 && filteredContacts.length !== 0 ? (
     <List
@@ -56,10 +59,13 @@ export const ContactList = () => {
           pl="20px"
           py="10px"
           bgColor={getRandomColor}
-          border='1px solid #FC0A7E'
+          border="1px solid #FC0A7E"
           borderRadius="8px"
-          cursor='pointer'
-          _hover={{ transform: 'scale(1.1) translate(0, -10px)', shadow: 'dark-lg' }}
+          cursor="pointer"
+          _hover={{
+            transform: 'scale(1.1) translate(0, -10px)',
+            shadow: 'dark-lg',
+          }}
         >
           <Contact name={name} number={number} id={id}></Contact>
         </ListItem>
