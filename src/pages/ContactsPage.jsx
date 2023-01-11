@@ -14,7 +14,6 @@ const ContactsPage = () => (
       Add new contact:
     </Text>
     <ContactForm />
-
     <ContactList />
   </Box>
 );

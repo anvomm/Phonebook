@@ -47,29 +47,31 @@ export const ContactList = () => {
       mb={'80px'}
       justifyContent="center"
     >
-      {filteredContacts.sort((a, b) => a.name.localeCompare(b.name)).map(({ name, number, id }) => (
-        <ListItem
-          key={id}
-          minW={'350px'}
-          display={'flex'}
-          alignItems={'center'}
-          justifyContent={'space-between'}
-          gap="8px"
-          pr="10px"
-          pl="20px"
-          py="10px"
-          bgColor={getRandomColor}
-          border="1px solid #FC0A7E"
-          borderRadius="8px"
-          cursor="pointer"
-          _hover={{
-            transform: 'scale(1.1) translate(0, -10px)',
-            shadow: 'dark-lg',
-          }}
-        >
-          <Contact name={name} number={number} id={id}></Contact>
-        </ListItem>
-      ))}
+      {filteredContacts
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(({ name, number, id }) => (
+          <ListItem
+            key={id}
+            minW={'350px'}
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'space-between'}
+            gap="8px"
+            pr="10px"
+            pl="20px"
+            py="10px"
+            bgColor={getRandomColor}
+            border="1px solid #FC0A7E"
+            borderRadius="8px"
+            cursor="pointer"
+            _hover={{
+              transform: 'scale(1.1) translate(0, -10px)',
+              shadow: 'dark-lg',
+            }}
+          >
+            <Contact name={name} number={number} id={id}></Contact>
+          </ListItem>
+        ))}
     </List>
   ) : contacts.length === 0 ? (
     <Text
@@ -86,7 +88,11 @@ export const ContactList = () => {
       fontSize={['15px', '16px', '18px', '20px']}
     >
       Your list does not contain the contact named
-      <Text color={'#FC0A7E'} fontSize={['15px', '16px', '18px', '20px']}>
+      <Text
+        as={'span'}
+        color={'#FC0A7E'}
+        fontSize={['15px', '16px', '18px', '20px']}
+      >
         {filter}
       </Text>
     </Text>

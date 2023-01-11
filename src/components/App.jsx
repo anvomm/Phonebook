@@ -8,7 +8,10 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/auth-operations';
-import { selectIsRefreshing, selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import {
+  selectIsRefreshing,
+  selectIsLoggedIn,
+} from 'redux/auth/auth-selectors';
 
 const HomePage = lazy(() =>
   import('pages/HomePage' /* webpackChunkName: "home-page" */)
@@ -62,8 +65,12 @@ export const App = () => {
             element={
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
-            />
-            { isLoggedIn ? <Route path="*" element={<ContactsPage />}/> : <Route path="*" element={<HomePage />} />}
+          />
+          {isLoggedIn ? (
+            <Route path="*" element={<ContactsPage />} />
+          ) : (
+            <Route path="*" element={<HomePage />} />
+          )}
         </Route>
       </Routes>
       <ToastContainer />

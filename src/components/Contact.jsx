@@ -9,8 +9,11 @@ export const Contact = ({ name, number, id }) => {
 
   return (
     <>
-      <Link href={`tel:${number}`} >
-        <PhoneIcon color="#CF0063" _hover={{ color: '#613975', transform: 'scale(1.4)' }} />
+      <Link href={`tel:${number}`}>
+        <PhoneIcon
+          color="#CF0063"
+          _hover={{ color: '#613975', transform: 'scale(1.4)' }}
+        />
       </Link>
       <Text color={'#613975'} fontSize={['16px', '16px', '18px']}>
         {name}

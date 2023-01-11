@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { selectUser } from 'redux/auth/auth-selectors';
 import { logOutUser } from 'redux/auth/auth-operations';
 import { Link, Flex, Avatar, Text } from '@chakra-ui/react';
+
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectUser).name;

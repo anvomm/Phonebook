@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { setFilterValue } from 'redux/filter/filterSlice';
-/* import { FilterLabel, FilterInput } from './Filter.styled'; */
 import { Input, Flex } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 

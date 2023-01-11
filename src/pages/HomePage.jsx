@@ -1,9 +1,10 @@
-import { Heading, Text, Button, Box } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Animation } from 'components/Animation';
+import { Heading, Text, Button, Box } from '@chakra-ui/react';
 
 const HomePage = () => {
   const navigate = useNavigate();
+
   return (
     <Box
       w={['300px', '440px', '750px', '970px', '1200px']}
@@ -31,17 +32,6 @@ const HomePage = () => {
       <Box display={['none', 'none', 'block']}>
         <Animation />
       </Box>
-      {/* <Image
-        boxSize="400px"
-        display={['none', 'none', 'none', 'none', 'inline-block']}
-        src="https://freesvg.org/img/1344190891.png"
-        alt=""
-      /> */}
-      {/* <Image
-        src="https://freesvg.org/img/shokunin_businessman_on_phone.png"
-        boxSize="400px"
-        alt=""
-      /> */}
     </Box>
   );
 };

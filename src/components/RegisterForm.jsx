@@ -1,19 +1,19 @@
-import { Input } from '@chakra-ui/react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerUser } from 'redux/auth/auth-operations';
 import {
   Flex,
   IconButton,
   FormControl,
   FormLabel,
   InputGroup,
+  Input,
   Button,
   InputRightElement,
   FormHelperText,
   useToast,
 } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { registerUser } from 'redux/auth/auth-operations';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');

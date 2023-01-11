@@ -13,7 +13,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   const activeLinkColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
-  const redirectOnLogoClick = isLoggedIn ? '/contacts' : '/'
+  const redirectOnLogoClick = isLoggedIn ? '/contacts' : '/';
 
   return (
     <nav>
@@ -31,28 +31,18 @@ export const Navigation = () => {
         <MobileMenu />
         <List display={['none', 'none', 'flex']} gap="38">
           <li>
-            {!isLoggedIn &&  <Link
-              as={NavLink}
-              to="/"
-              _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
-              _hover={{ textDecoration: 'none' }}
-              visibility={['hidden', 'hidden', 'visible']}
-            >
-              Home
-            </Link>}
-          </li>
-          {/* {isLoggedIn && (
-            <li>
+            {!isLoggedIn && (
               <Link
                 as={NavLink}
-                to={'/contacts'}
+                to="/"
                 _activeLink={{ color: activeLinkColor, fontWeight: '700' }}
                 _hover={{ textDecoration: 'none' }}
+                visibility={['hidden', 'hidden', 'visible']}
               >
-                Contacts
+                Home
               </Link>
-            </li>
-          )} */}
+            )}
+          </li>
           {!isLoggedIn && (
             <li>
               <Link
