@@ -47,7 +47,7 @@ export const ContactList = () => {
       mb={'80px'}
       justifyContent="center"
     >
-      {filteredContacts.map(({ name, number, id }) => (
+      {filteredContacts.sort((a, b) => a.name.localeCompare(b.name)).map(({ name, number, id }) => (
         <ListItem
           key={id}
           minW={'350px'}
