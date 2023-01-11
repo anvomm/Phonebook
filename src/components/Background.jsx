@@ -95,11 +95,11 @@ export const Background = () => {
                         type: "circle",
                     },
                     size: {
-                        /* value: { min: 1, max: 2 }, */
-                        random: {
+                        value: { min: 1, max: 2 },
+                        /* random: {
                             enable: true,
                             minimumValue: 0.5,
-                        }
+                        } */
                     },
                 },
                 detectRetina: true,
