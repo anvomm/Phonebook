@@ -67,14 +67,6 @@ export const RegisterForm = () => {
       return;
     }
     dispatch(registerUser({ name, email, password }));
-    toast({
-      title: 'Welcome!',
-      description: 'Your account is created',
-      status: 'success',
-      position: 'top-right',
-      duration: 5000,
-      isClosable: true,
-    });
     e.target.reset();
     resetForm();
   };

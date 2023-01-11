@@ -21,7 +21,7 @@ export const registerUser = createAsyncThunk(
     try {
       const res = await axios.post('/users/signup', credentials);
       setAuthHeader(res.data.token);
-      notifyAboutSuccess('Your account is saved!');
+      notifyAboutSuccess('Welcome! Your account is created');
       return res.data;
     } catch (error) {
       notifyAboutError();
