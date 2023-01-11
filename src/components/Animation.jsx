@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { book, phone, mobile } from "../utils/paths";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { getIndex, useFlubber } from "../hooks/useFlubber.ts";
+import { getIndex, useFlubber } from "../hooks/useFlubber.js";
 
 const paths = [ phone, mobile, book, phone];
 const colors = [
