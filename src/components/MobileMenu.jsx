@@ -18,6 +18,8 @@ export const MobileMenu = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const location = useLocation();
   const activeLinkColor = location.pathname === '/' ? '#FC0A7E' : '#613975';
+  const buttonColor = location.pathname === '/' ? '#fff' : '#613975';
+  const activeButtonColor = location.pathname === '/' ? '#FC0A7E' : '#fff';
 
   return (
     <Box visibility={['visible', 'visible', 'hidden']}>
@@ -26,9 +28,9 @@ export const MobileMenu = () => {
           as={IconButton}
           icon={<HamburgerIcon h="25px" w="25px" />}
           bgColor="transparent"
-          color="#613975"
-          _active={{ bgColor: 'transparent', color: '#613975' }}
-          _focus={{ bgColor: 'transparent', color: '#613975' }}
+          color={buttonColor}
+          _active={{ bgColor: 'transparent', color: activeButtonColor }}
+          _focus={{ bgColor: 'transparent', color: activeButtonColor }}
         ></MenuButton>
         
         {!isLoggedIn ? <MenuList bgColor="#FC0A7E"><MenuItem bgColor="#FC0A7E">

@@ -13,7 +13,7 @@ const HomePage = () => {
       alignItems={'center'}
       justifyContent={'space-between'}
     >
-      <Box pt='60px'>
+      <Box pt="60px">
         <Heading as="h1" size="3xl" color="#fff" fontWeight={400} mb={10}>
           Phonebook
         </Heading>
@@ -28,8 +28,9 @@ const HomePage = () => {
           Join now
         </Button>
       </Box>
-      
-      <Animation />
+      <Box display={['none', 'none', 'block']}>
+        <Animation />
+      </Box>
       {/* <Image
         boxSize="400px"
         display={['none', 'none', 'none', 'none', 'inline-block']}

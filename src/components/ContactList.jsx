@@ -23,6 +23,11 @@ export const ContactList = () => {
     name.toLowerCase().includes(filter)
   );
 
+  const getRandomColor = () => {
+    const color = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
+    return color;
+  }
+
   return contacts.length === 0 && isLoading ? (
     <CircularProgress
       isIndeterminate
@@ -50,11 +55,11 @@ export const ContactList = () => {
           pr="10px"
           pl="20px"
           py="10px"
-          bgColor={function getRandomColor() {
-            const color = 'hsl(' + Math.random() * 360 + ', 100%, 75%)';
-            return color;
-          }}
+          bgColor={getRandomColor}
+          border='1px solid #FC0A7E'
           borderRadius="8px"
+          cursor='pointer'
+          _hover={{ transform: 'scale(1.1) translate(0, -10px)', shadow: 'dark-lg' }}
         >
           <Contact name={name} number={number} id={id}></Contact>
         </ListItem>
