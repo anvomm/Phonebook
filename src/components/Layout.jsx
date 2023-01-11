@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from 'components/Navigation';
 import { Box, Text, CircularProgress } from '@chakra-ui/react';
+import { Background } from './Background';
 
 export const Layout = () => {
   const location = useLocation();
@@ -52,7 +53,7 @@ export const Layout = () => {
         </Box>
       </Box>
     </Box>
-  ) : (
+  ) : (<>
     <Box
       bgColor={'#fff'}
       w={'100%'}
@@ -63,9 +64,9 @@ export const Layout = () => {
       <Box
         as="header"
         w={'100%'}
-        bgColor={'#FC0A7E'}
-        position="relative"
-        zIndex={'1000'}
+          bgColor={'#FC0A7E'}
+          position='relative'
+          zIndex={'1000'}
       >
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
@@ -75,7 +76,7 @@ export const Layout = () => {
           <Navigation />
         </Box>
       </Box>
-      <main>
+        <main>
         <Suspense
           fallback={
             <CircularProgress
@@ -86,11 +87,13 @@ export const Layout = () => {
               justifyContent="center"
             />
           }
-        >
+          >
+            { location.pathname === '/login' && <Background />}
           <Outlet />
         </Suspense>
       </main>
-      <Box as="footer" pb={'15px'} bgColor={'#3C0C41'} mt={'auto'}>
+      <Box as="footer" pb={'15px'} bgColor={'#3C0C41'} mt={'auto'} position='relative'
+          zIndex={'1000'}>
         <Box
           w={['300px', '440px', '750px', '970px', '1200px']}
           mx="auto"
@@ -103,6 +106,7 @@ export const Layout = () => {
           </Text>
         </Box>
       </Box>
-    </Box>
+        </Box>
+      </>
   );
 };

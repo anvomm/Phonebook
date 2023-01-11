@@ -82,8 +82,6 @@ export const RegisterForm = () => {
   return (
     <Flex
       as="form"
-      position={'relative'}
-      zIndex="1000"
       flexDirection={'column'}
       gap={'50px'}
       bgGradient="linear(to-t, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"
@@ -93,6 +91,8 @@ export const RegisterForm = () => {
       mx={'auto'}
       mb={'120px'}
       w={['280px', '400px', '450px', '500px']}
+      position="relative"
+      zIndex={'1000'}
       onSubmit={handleSubmit}
     >
       <Flex flexDirection={'column'} align={'center'} gap={'20px'}>
