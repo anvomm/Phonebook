@@ -87,13 +87,14 @@ export const ContactList = () => {
       color={'#613975'}
       fontSize={['15px', '16px', '18px', '20px']}
     >
-      Your list does not contain the contact named
+      Your list does not contain the contact named {' '}
       <Text
         as={'span'}
         color={'#FC0A7E'}
         fontSize={['15px', '16px', '18px', '20px']}
+        fontWeight='500'
       >
-        {filter}
+           {filter}
       </Text>
     </Text>
   );
