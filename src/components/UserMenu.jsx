@@ -2,11 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { selectUser } from 'redux/auth/auth-selectors';
 import { logOutUser } from 'redux/auth/auth-operations';
-import { Link, Flex, Avatar, Text } from '@chakra-ui/react';
+import { Link, Flex, Avatar, Text, useToast } from '@chakra-ui/react';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(selectUser).name;
+
+  const toast = useToast();
+  function closeAll() {
+    toast.closeAll()
+  }
 
   const location = useLocation();
   const activeColor = location.pathname === '/' || (location.pathname !== '/contacts' && location.pathname !== '/register' && location.pathname !== '/login') ? '#FC0A7E' : '#613975';
@@ -26,7 +31,8 @@ export const UserMenu = () => {
       </Flex>
       <Link
         _hover={{ textDecoration: 'none' }}
-        onClick={() => dispatch(logOutUser())}
+        onClick={() => {dispatch(logOutUser());
+          closeAll()}}
       >
         Log out
       </Link>
