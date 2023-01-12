@@ -9,8 +9,7 @@ export const Contact = ({ name, number, id }) => {
 
   return (
     <>
-      {' '}
-      <Tooltip label="Make a call">
+      <Tooltip label="Make a call" bg="#613975">
         <Link href={`tel:${number}`}>
           <PhoneIcon
             color="#CF0063"
@@ -24,7 +23,7 @@ export const Contact = ({ name, number, id }) => {
       <Text color={'#613975'} fontSize={['16px', '16px', '18px']}>
         {number}
       </Text>
-      <Tooltip label="Delete" bg="#CF0063">
+      <Tooltip label="Delete" bg="#613975">
         <IconButton
           color="#CF0063"
           bgColor={'transparent'}
