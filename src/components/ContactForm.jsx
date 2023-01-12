@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
+import { notifyAboutSuccess } from 'redux/contacts/contacts-operations';
 import {
   Flex,
   Button,
@@ -58,6 +59,9 @@ export const ContactForm = () => {
       return;
     }
     dispatch(addContact({ name, number }));
+    notifyAboutSuccess(
+      `${name} is successfully added to your contacts.`
+    );
     resetForm();
   };
 
