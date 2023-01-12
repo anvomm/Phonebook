@@ -42,7 +42,6 @@ export const ContactForm = () => {
 
   const submitHandler = e => {
     e.preventDefault();
-    console.log('here');
     const isExist = contacts.find(
       contacts => contacts.name.toLowerCase() === name.toLowerCase()
     );
