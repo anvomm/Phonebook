@@ -30,7 +30,7 @@ export const Contact = ({ name, number, id }) => {
 
   const addToast = () => {
     toastIdRef.current = toast({
-      duration: 15000,
+      duration: null,
       position: 'bottom-right',
       render: () => (
         <Alert
@@ -51,7 +51,10 @@ export const Contact = ({ name, number, id }) => {
               date={Date.now() + 15000}
               intervalDelay={1000}
               precision={1}
-              renderer={props => <div>{props.seconds}</div>}
+              renderer={props => {
+                if (props.seconds === 0) {close()};
+                return <div>{props.seconds}</div>;
+              }}
             />
             secons to undo this action
           </AlertDescription>
