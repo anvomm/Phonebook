@@ -21,6 +21,7 @@ export const Contact = ({ name, number, id }) => {
   const toast = useToast();
 
   const toastIdRef = useRef();
+  let deleteIsPressed = false;
 
   const close = () => {
     if (toastIdRef.current) {
@@ -47,15 +48,15 @@ export const Contact = ({ name, number, id }) => {
           </AlertTitle>
           <AlertDescription mb="10px">
             You have
-            <Countdown
+            {deleteIsPressed && <Countdown
               date={Date.now() + 15000}
               intervalDelay={1000}
               precision={1}
               renderer={props => {
-                if (props.seconds === 0) {close()};
+                if (props.seconds === 0) {deleteIsPressed = false; close()};
                 return <div>{props.seconds}</div>;
               }}
-            />
+            />}
             secons to undo this action
           </AlertDescription>
 
@@ -68,6 +69,7 @@ export const Contact = ({ name, number, id }) => {
             }}
             onClick={() => {
               dispatch(addContact({ name, number }));
+              deleteIsPressed = false;
               close();
             }}
           >
@@ -104,6 +106,7 @@ export const Contact = ({ name, number, id }) => {
           icon={<DeleteIcon />}
           onClick={() => {
             dispatch(deleteContact({ id, name }));
+            deleteIsPressed = true;
             addToast();
           }}
         />
