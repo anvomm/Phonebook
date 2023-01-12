@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
-import { IconButton, Link, Text } from '@chakra-ui/react';
+import { IconButton, Link, Text, Tooltip } from '@chakra-ui/react';
 import { PhoneIcon, DeleteIcon } from '@chakra-ui/icons';
 
 export const Contact = ({ name, number, id }) => {
@@ -9,29 +9,34 @@ export const Contact = ({ name, number, id }) => {
 
   return (
     <>
-      <Link href={`tel:${number}`}>
-        <PhoneIcon
-          color="#CF0063"
-          _hover={{ color: '#613975', transform: 'scale(1.4)' }}
-        />
-      </Link>
+      {' '}
+      <Tooltip label="Make a call">
+        <Link href={`tel:${number}`}>
+          <PhoneIcon
+            color="#CF0063"
+            _hover={{ color: '#613975', transform: 'scale(1.4)' }}
+          />
+        </Link>
+      </Tooltip>
       <Text color={'#613975'} fontSize={['16px', '16px', '18px']}>
         {name}
       </Text>
       <Text color={'#613975'} fontSize={['16px', '16px', '18px']}>
         {number}
       </Text>
-      <IconButton
-        color="#CF0063"
-        bgColor={'transparent'}
-        _hover={{ bgColor: 'transparent', color: '#613975' }}
-        aria-label="Delete contact"
-        size="lg"
-        icon={<DeleteIcon />}
-        onClick={() => {
-          dispatch(deleteContact({ id, name }));
-        }}
-      />
+      <Tooltip label="Delete" bg="#CF0063">
+        <IconButton
+          color="#CF0063"
+          bgColor={'transparent'}
+          _hover={{ bgColor: 'transparent', color: '#613975' }}
+          aria-label="Delete contact"
+          size="lg"
+          icon={<DeleteIcon />}
+          onClick={() => {
+            dispatch(deleteContact({ id, name }));
+          }}
+        />
+      </Tooltip>
     </>
   );
 };
