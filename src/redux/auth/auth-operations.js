@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  notifyAboutError,
-  notifyAboutSuccess,
-} from 'redux/contacts/contacts-operations';
+import { notifyAboutError, notifyAboutSuccess } from 'utils/notifications';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 

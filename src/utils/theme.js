@@ -1,5 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
-import { buttonTheme } from 'utils/Button';
+import { buttonTheme } from 'utils/buttonStyle';
 import { inputTheme } from 'utils/inputStyle';
 import '@fontsource/gothic-a1';
 
