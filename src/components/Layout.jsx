@@ -1,17 +1,20 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Navigation } from 'components/Navigation';
 import { Box, Text, Spinner } from '@chakra-ui/react';
 import { Background } from './Background';
 
 export const Layout = () => {
   const location = useLocation();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return location.pathname === '/' ||
-    (location.pathname !== '/contacts' &&
+    (!location.pathname !== '/contacts' &&
       location.pathname !== '/register' &&
-      location.pathname !== '/login') ? (
+      location.pathname !== '/login' && !isLoggedIn) ? (
     <Box
       bgGradient="linear(287.15deg, #450E4B 0%, #3C0C41 24.48%, rgba(207, 0, 99, 0) 100%)"
       bgColor={'#CF0063'}
