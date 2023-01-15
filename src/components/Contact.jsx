@@ -57,7 +57,7 @@ export const Contact = ({ name, number, id }) => {
                 return <div>{props.seconds}</div>;
               }}
             />}
-            secons to undo this action
+            seconds to undo this action
           </AlertDescription>
 
           <Button
